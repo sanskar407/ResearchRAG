@@ -227,3 +227,65 @@ __marimo__/
 # Explicit initial scaffold ignores
 .venv/
 .ipynb_checkpoints/
+
+
+# ==============================
+# Python
+# ==============================
+
+__pycache__/
+*.py[cod]
+*.pyo
+
+# ==============================
+# Virtual environments
+# ==============================
+
+.venv/
+venv/
+env/
+
+# ==============================
+# Jupyter
+# ==============================
+
+.ipynb_checkpoints/
+
+# ==============================
+# Environment / secrets
+# ==============================
+
+.env
+.env.*
+
+# ==============================
+# Data files
+# ==============================
+
+# Ignore all files inside data/
+data/*
+
+# Keep the data directory itself in Git
+!data/.gitkeep
+
+# ==============================
+# IDE
+# ==============================
+
+.vscode/
+.idea/
+
+# ==============================
+# OS
+# ==============================
+
+.DS_Store
+Thumbs.db
+
+# ==============================
+# Python build files
+# ==============================
+
+*.egg-info/
+dist/
+build/
