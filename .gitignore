@@ -216,3 +216,14 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# IDE/editor temporary files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Explicit initial scaffold ignores
+.venv/
+.ipynb_checkpoints/
