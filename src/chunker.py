@@ -6,10 +6,10 @@ def create_page_chunks(
     """
     Split page-level text into overlapping chunks.
 
-    Returns chunks with metadata such as:
+    Each chunk contains:
     - chunk_id
-    - page
     - source
+    - page
     - text
     """
 
@@ -17,7 +17,11 @@ def create_page_chunks(
 
     for page in page_texts:
 
-        text = page["text"]
+        text = page.get("text", "")
+        source = page.get("source", "unknown")
+
+        if not text.strip():
+            continue
 
         start = 0
 
@@ -30,6 +34,7 @@ def create_page_chunks(
             if chunk_text:
 
                 chunks.append({
+                    "source": source,
                     "page": page["page"],
                     "text": chunk_text
                 })
