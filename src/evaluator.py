@@ -61,3 +61,76 @@ def evaluate_citations(answer, retrieved_chunks):
             total > 0 and len(valid_citations) == total
         )
     }
+
+def evaluate_grounding(answer, retrieved_chunks):
+    """
+    Estimate whether important answer terms are present
+    in the retrieved context.
+
+    This is a lightweight lexical baseline, not a semantic
+    or LLM-based faithfulness evaluator.
+    """
+
+    if not answer.strip() or not retrieved_chunks:
+        return {
+            "grounding_score": 0.0,
+            "supported_terms": 0,
+            "total_terms": 0,
+        }
+
+    context = " ".join(
+        chunk["text"]
+        for chunk in retrieved_chunks
+    ).lower()
+
+    # Remove citation metadata from the answer.
+    answer_text = re.sub(
+        r"\[[^\]]+\]",
+        "",
+        answer.lower()
+    )
+
+    # Extract meaningful words.
+    words = re.findall(
+        r"\b[a-zA-Z]{4,}\b",
+        answer_text
+    )
+
+    # Remove common English words.
+    stopwords = {
+        "this", "that", "these", "those",
+        "with", "from", "they", "their",
+        "there", "which", "where", "when",
+        "what", "does", "have", "been",
+        "using", "used", "into", "also",
+        "than", "then", "such", "only",
+        "provided", "documents", "information",
+    }
+
+    meaningful_words = [
+        word for word in words
+        if word not in stopwords
+    ]
+
+    if not meaningful_words:
+        return {
+            "grounding_score": 0.0,
+            "supported_terms": 0,
+            "total_terms": 0,
+        }
+
+    supported_terms = sum(
+        1
+        for word in meaningful_words
+        if word in context
+    )
+
+    grounding_score = (
+        supported_terms / len(meaningful_words)
+    )
+
+    return {
+        "grounding_score": grounding_score,
+        "supported_terms": supported_terms,
+        "total_terms": len(meaningful_words),
+    }
