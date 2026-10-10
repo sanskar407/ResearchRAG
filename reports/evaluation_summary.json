@@ -1,0 +1,39 @@
+{
+    "dataset": {
+        "total_questions": 13,
+        "answerable_questions": 10,
+        "unanswerable_questions": 3
+    },
+    "retrieval_comparison": {
+        "Dense": {
+            "Recall@1": 1.0,
+            "Recall@3": 1.0,
+            "Recall@5": 1.0,
+            "Reciprocal Rank": 1.0
+        },
+        "Hybrid": {
+            "Recall@1": 1.0,
+            "Recall@3": 1.0,
+            "Recall@5": 1.0,
+            "Reciprocal Rank": 1.0
+        },
+        "Hybrid + Reranking": {
+            "Recall@1": 1.0,
+            "Recall@3": 1.0,
+            "Recall@5": 1.0,
+            "Reciprocal Rank": 1.0
+        }
+    },
+    "answer_evaluation": {
+        "document_retrieval_accuracy": 1.0,
+        "average_citation_precision": 0.1,
+        "average_lexical_grounding_score": 0.7125073051879603,
+        "questions_with_citations_rate": 0.3
+    },
+    "notes": [
+        "Retrieval metrics use document-level relevance labels.",
+        "Lexical grounding is a heuristic, not factual accuracy.",
+        "Citation validity does not establish claim-level support.",
+        "Unanswerable questions require manual review."
+    ]
+}

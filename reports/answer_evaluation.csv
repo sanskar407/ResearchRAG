@@ -1,0 +1,11 @@
+Question ID,Expected Source,Expected Source Retrieved,Total Citations,Valid Citations,Citation Precision,Grounding Score
+1,Lora.pdf,True,0,0,0.0,0.8316831683168316
+2,attention-is-all-you-need-Paper.pdf,True,0,0,0.0,0.7132352941176471
+3,attention-is-all-you-need-Paper.pdf,True,1,0,0.0,0.6923076923076923
+4,chain-of-thought.pdf,True,0,0,0.0,0.703862660944206
+5,deep residual learning for image recognition.pdf,True,0,0,0.0,0.7777777777777778
+6,GANs.pdf,True,0,0,0.0,0.6428571428571429
+7,Lora.pdf,True,0,0,0.0,0.7
+8,attention-is-all-you-need-Paper.pdf,True,0,0,0.0,0.6623376623376623
+9,deep residual learning for image recognition.pdf,True,3,0,0.0,0.708029197080292
+10,GANs.pdf,True,4,4,1.0,0.6929824561403509
